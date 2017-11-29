@@ -1,0 +1,37 @@
+########################################################################################
+#应用服务器，与MongoDB通常不会部署于同一台设备之上，这样就无法使用自动化的本地配置来进行使用。
+#这个时候，我们也可以方便的配置来完成支持，只需要在application.properties(或 application.yml)
+#中加入mongodb服务端的相关配置
+#在尝试此配置时，记得在mongo中对test库创建具备读写权限的用户（用户名为name，密码为pass），
+#不同版本的用户创建语句不同，注意查看文档做好准备工作
+########################################################################################
+#----------------------------
+# spring data mongodb 配置
+#----------------------------
+#spring:
+#  data:
+#    mongodb:
+#      uri: mongodb://name:pass@localhost:27017/test
+      
+#多个IP集群可以采用以下配置：
+#spring.data.mongodb.uri=mongodb://user:pwd@ip1:port1,ip2:port2/database
+
+#----------------------------
+# 模板 Thymeleaf 依赖配置
+#----------------------------
+spring:
+  thymeleaf:
+    cache: true  # Enable template caching.
+    check-template: true  #Check that the template exists before rendering it.
+    check-template-location: true # Check that the templates location exists.
+    enabled: true #  Enable Thymeleaf view resolution for Web frameworks.
+    encoding: UTF-8 # Template files encoding.
+    mode: HTML5  # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
+    prefix: classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
+    suffix: .html # Suffix that gets appended to view names when building a URL.
+    content-type: text/html; charset=utf-8
+    #excluded-view-names:  # Comma-separated list of view names that should be excluded from resolution.
+    #template-resolver-order:    # Order of the template resolver in the chain.
+    #view-names:       # Comma-separated list of view names that can be resolved.
+    
+    
