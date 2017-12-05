@@ -6,20 +6,36 @@
 #不同版本的用户创建语句不同，注意查看文档做好准备工作
 ########################################################################################
 #----------------------------
-# spring data mongodb 配置
+# Mongdb 数据库 依赖配置
 #----------------------------
-#spring:
-#  data:
-#    mongodb:
+########## Mongodb cofig start ##########
+spring:
+  data:
+    mongodb:
+      database: test
+      host: localhost
+      port: 2701
 #      uri: mongodb://name:pass@localhost:27017/test
-      
+########## Mongodb cofig end ##########
+
+# MONGODB (MongoProperties)
+#spring.data.mongodb.authentication-database= # Authentication database name.
+#spring.data.mongodb.database=test # Database name.
+#spring.data.mongodb.field-naming-strategy= # Fully qualified name of the FieldNamingStrategy to use.
+#spring.data.mongodb.grid-fs-database= # GridFS database name.
+#spring.data.mongodb.host=localhost # Mongo server host.
+#spring.data.mongodb.password= # Login password of the mongo server.
+#spring.data.mongodb.port=27017 # Mongo server port.
+#spring.data.mongodb.repositories.enabled=true # Enable Mongo repositories.
+#spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. When set, host and port are ignored.
+#spring.data.mongodb.username= # Login user of the mongo server. 
 #多个IP集群可以采用以下配置：
 #spring.data.mongodb.uri=mongodb://user:pwd@ip1:port1,ip2:port2/database
 
 #----------------------------
 # 模板 Thymeleaf 依赖配置
 #----------------------------
-spring:
+########## Thymeleaf cofig start ##########
   thymeleaf:
     cache: true  # Enable template caching.
     check-template: true  #Check that the template exists before rendering it.
@@ -33,5 +49,5 @@ spring:
     #excluded-view-names:  # Comma-separated list of view names that should be excluded from resolution.
     #template-resolver-order:    # Order of the template resolver in the chain.
     #view-names:       # Comma-separated list of view names that can be resolved.
-    
+########## Thymeleaf cofig end ##########    
     

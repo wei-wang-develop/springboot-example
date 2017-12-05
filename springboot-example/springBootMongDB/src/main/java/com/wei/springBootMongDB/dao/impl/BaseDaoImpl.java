@@ -1,4 +1,4 @@
-package com.wei.springBootMongDB.service.impl;
+package com.wei.springBootMongDB.dao.impl;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
-import com.wei.springBootMongDB.service.BaseService;
+import com.wei.springBootMongDB.dao.BaseDao;
 import com.wei.springBootMongDB.utils.ReflectionUtils;
 
-public class BaseDaoImpl<T> implements BaseService<T> {
+public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	/**
 	 * Get the class object

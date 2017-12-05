@@ -1,4 +1,4 @@
-package com.wei.springBootMongDB.service;
+package com.wei.springBootMongDB.dao;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.query.Update;
  *
  * @param <T>
  */
-public interface BaseService<T> {
+public interface BaseDao<T> {
 
 	/**
 	 * save entity

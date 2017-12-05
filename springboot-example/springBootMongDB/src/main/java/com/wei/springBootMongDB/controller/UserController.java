@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wei.springBootMongDB.dao.UserDao;
 import com.wei.springBootMongDB.domain.User;
-import com.wei.springBootMongDB.service.UserService;
 
 /**
  * 用户控制层
@@ -25,7 +25,7 @@ import com.wei.springBootMongDB.service.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private UserDao userDao;
 	
 	//--------------------------
 	// Server --> Client
@@ -39,7 +39,7 @@ public class UserController {
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String getUserList(ModelMap map){
 		// 加入一个属性，用来在模板中读取
-		map.addAttribute("userList", userService.findAll());
+		map.addAttribute("userList", userDao.findAll());
 		// return模板文件的名称，对应 src/main/resources/templates/userList.html
 		return "/userList";
 		//return "/userList_with_header_navbar_footer";
@@ -66,7 +66,7 @@ public class UserController {
      */
     @RequestMapping(value="/users/update/{id}", method=RequestMethod.GET)
     public String getUser(@PathVariable String id , ModelMap map){
-    	map.addAttribute("user", userService.findById(new ObjectId(id), "user"));
+    	map.addAttribute("user", userDao.findById(new ObjectId(id), "user"));
     	map.addAttribute("action", "update");
     	return "userForm";
     }
@@ -92,7 +92,7 @@ public class UserController {
     		map.addAttribute("action", "create");
     		return "userForm";
     	}    	
-    	userService.save(user);
+    	userDao.save(user);
     	return "redirect:/users/";
     }
     
@@ -109,7 +109,7 @@ public class UserController {
     		map.addAttribute("action", "update");
     		return "userForm";
     	}*/
-    	userService.update(user);
+    	userDao.update(user);
     	return "redirect:/users/";
     }
     
@@ -118,7 +118,7 @@ public class UserController {
      */
     @RequestMapping(value="/users/delete/{id}", method=RequestMethod.GET)
     public String deleteUser(@PathVariable String id){
-    	userService.remove(new ObjectId(id));
+    	userDao.remove(new ObjectId(id));
     	return "redirect:/users/";
     }
 }

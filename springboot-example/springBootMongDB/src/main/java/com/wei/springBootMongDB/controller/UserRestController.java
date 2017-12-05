@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Criteria;
 
+import com.wei.springBootMongDB.dao.UserDao;
 import com.wei.springBootMongDB.domain.User;
-import com.wei.springBootMongDB.service.UserService;
 
 /**
  * User Controller 实现 Restful HTTP 服务
@@ -26,19 +26,19 @@ import com.wei.springBootMongDB.service.UserService;
 public class UserRestController {
 
 	@Autowired
-	private UserService userService;
+	private UserDao userDao;
 	
 	//get user(s) methods
 	@RequestMapping(value = "/api/user", method = RequestMethod.GET)
 	public List<User> findAllUser(){
-		return userService.findAll();
+		return userDao.findAll();
 	}
 	
 	//当使用@RequestMapping URI template 样式映射时， 即 someUrl/{paramId}, 
 	//这时的paramId可通过 @Pathvariable注解绑定它传过来的值到方法的参数上
 	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
 	public User findOneById(@PathVariable("id") String id){
-		return userService.findById(new ObjectId(id), "user");
+		return userDao.findById(new ObjectId(id), "user");
 	}
 	
 	/*
@@ -59,23 +59,23 @@ public class UserRestController {
 	// create user method
 	@RequestMapping(value = "/api/user", method = RequestMethod.POST)
 	public void createUser(@RequestBody User user){
-		userService.save(user);
+		userDao.save(user);
 	}
 	
 	// update(modify) user method
 	@RequestMapping(value = "/api/user", method = RequestMethod.PUT)
 	public void modifyUser(@RequestBody User user){
-		userService.update(user);
+		userDao.update(user);
 	}
 	
 	// delete user methods
 	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
 	public void deleteById(@PathVariable("id") String id){
-		userService.remove(new ObjectId(id));
+		userDao.remove(new ObjectId(id));
 	}
 
 	@RequestMapping(value = "/api/user/deleteAll", method = RequestMethod.DELETE)
 	public void deleteAll(){
-		userService.removeAll();
+		userDao.removeAll();
 	}
 }

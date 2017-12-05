@@ -1,4 +1,4 @@
-package com.wei.springBootMongDB.service.impl;
+package com.wei.springBootMongDB.dao.impl;
 
 import java.util.Optional;
 
@@ -10,23 +10,23 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.wei.springBootMongDB.dao.UserDao;
 import com.wei.springBootMongDB.domain.Email;
 import com.wei.springBootMongDB.domain.User;
-import com.wei.springBootMongDB.service.UserService;
 
 import junit.framework.Assert;
 
 /**
- * Test {@link UserService} implementation using extends {@link BaseDao} implementation.
+ * Test {@link UserDao} implementation using extends {@link BaseDao} implementation.
+ * 
  * @author Wei WANG
- *
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserServiceImplTest {
+public class UserDaoImplTest {
 	
 	@Autowired
-	private UserService userService;
+	private UserDao userDao;
 	
 	@Test
 	public void saveTest(){
@@ -36,19 +36,19 @@ public class UserServiceImplTest {
 		user1.setAge(20);
 		user1.setBirthday("1997-12-21");
 		user1.setEmailAddress(new Email("AnthonyWANG@gmail.com"));
-		userService.save(user1);
+		userDao.save(user1);
 	}
 	
 	@Test
 	public void findAllTest(){
-		userService.findAll().stream()
+		userDao.findAll().stream()
 					.forEach(user -> System.out.println(user.toString()));
 	}
 	
 	@Test
 	public void findOneTest(){
 		Query query = new Query(Criteria.where("userName").is("AnthonyWANG"));
-		Optional<User> actual = Optional.ofNullable(userService.findOne(query));
+		Optional<User> actual = Optional.ofNullable(userDao.findOne(query));
 		
 		String expected = "AnthonyWANG";
 		Assert.assertEquals(expected, actual.get().getUserName());
@@ -57,10 +57,10 @@ public class UserServiceImplTest {
 	@SuppressWarnings("deprecation")
 	@Test public void findOneByEmailTest(){
 		Query query = new Query(Criteria.where("email").is("user@gmail.com"));
-		Optional<User> actual = Optional.ofNullable(userService.findOne(query));
+		Optional<User> actual = Optional.ofNullable(userDao.findOne(query));
 		
 		String expected = "user@gmail.com";
-		System.out.println(userService.findOne(query).getUserName());
+		System.out.println(userDao.findOne(query).getUserName());
 		Assert.assertEquals(expected, actual.get().getEmailAddress().getEmail());
 	}
 	
@@ -68,13 +68,13 @@ public class UserServiceImplTest {
 	public void modifyTest(){
 		//expected object:
 		Query query1 = new Query(Criteria.where("userName").is("AnthonyWANG"));
-		Optional<User> expected_obj = Optional.ofNullable(userService.findOne(query1));
+		Optional<User> expected_obj = Optional.ofNullable(userDao.findOne(query1));
 		expected_obj.get().setPassWord("password_new");
-		userService.update(expected_obj.get());
+		userDao.update(expected_obj.get());
 		
 		//actual object:
 		Query query2 = new Query(Criteria.where("userName").is("AnthonyWANG"));
-		Optional<User> actual_obj = Optional.ofNullable(userService.findOne(query2));
+		Optional<User> actual_obj = Optional.ofNullable(userDao.findOne(query2));
 		
 		Assert.assertEquals(expected_obj.get().getPassWord(), actual_obj.get().getPassWord());
 	}
@@ -82,12 +82,12 @@ public class UserServiceImplTest {
 	@Test
 	public void deleteTest(){
 		Query query = new Query(Criteria.where("userName").is("AnthonyWANG"));
-		userService.remove(query);
+		userDao.remove(query);
 	}
 	
 	@Test
 	public void deleteAllTest(){
-		userService.removeAll();
+		userDao.removeAll();
 	}
 
 }

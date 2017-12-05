@@ -1,4 +1,4 @@
-package com.wei.springBootMongDB.service;
+package com.wei.springBootMongDB.dao;
 
 import com.wei.springBootMongDB.domain.User;
 
@@ -9,6 +9,6 @@ import com.wei.springBootMongDB.domain.User;
  * @author Wei WANG
  *
  */
-public interface UserService extends BaseService<User>{
+public interface UserDao extends BaseDao<User>{
 
 }
