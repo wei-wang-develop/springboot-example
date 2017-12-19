@@ -83,9 +83,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 
 	/**
-	 * update entity
+	 * update entity (Only for one constructor)
 	 * @param entity
 	 */
+	//update entity (Only for one constructor)
 	public void update(T entity) {
 		try{
 			// obtain id (type ObijectId) by Class object
@@ -107,13 +108,13 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			// update entity
 			this.operations.updateFirst( new Query(Criteria.where("id").is(id)), 
 										update,
-										this.getEntityClazz()
-										);
+										this.getEntityClazz());
+										
 		}catch(Exception e){
 			throw new RuntimeException(e.getMessage());
 		}
 	}
-	
+
 	
 	
 	

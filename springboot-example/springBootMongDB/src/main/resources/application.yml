@@ -9,12 +9,12 @@
 # Mongdb 数据库 依赖配置
 #----------------------------
 ########## Mongodb cofig start ##########
-spring:
-  data:
-    mongodb:
-      database: test
-      host: localhost
-      port: 2701
+#spring:
+#  data:
+#    mongodb:
+#      database: test
+#      host: localhost
+#      port: 2701
 #      uri: mongodb://name:pass@localhost:27017/test
 ########## Mongodb cofig end ##########
 

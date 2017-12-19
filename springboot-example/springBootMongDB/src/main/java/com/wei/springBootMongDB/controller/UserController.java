@@ -21,7 +21,7 @@ import com.wei.springBootMongDB.domain.User;
  * @author Wei WANG
  *
  */
-@Controller          //如果我们需要使用页面开发只要使用 @Controller
+@Controller     //如果我们需要使用页面开发只要使用 @Controller
 public class UserController {
 
 	@Autowired
@@ -60,13 +60,14 @@ public class UserController {
 	
 	   
     /**
-     * 显示需要更新用户表单w
+     * 显示需要更新用户表单
      *    处理 "/users/{id}" 的 GET 请求，通过 URL 中的 id 值获取 User 信息
      *    URL 中的 id ，通过 @PathVariable 绑定参数
      */
     @RequestMapping(value="/users/update/{id}", method=RequestMethod.GET)
     public String getUser(@PathVariable String id , ModelMap map){
-    	map.addAttribute("user", userDao.findById(new ObjectId(id), "user"));
+    	User user = userDao.findById(new ObjectId(id), "user");
+    	map.addAttribute("user", user);
     	map.addAttribute("action", "update");
     	return "userForm";
     }

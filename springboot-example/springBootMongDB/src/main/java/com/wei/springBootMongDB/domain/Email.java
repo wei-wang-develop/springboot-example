@@ -1,5 +1,6 @@
 package com.wei.springBootMongDB.domain;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
 import org.springframework.core.convert.converter.Converter;
@@ -14,7 +15,10 @@ import org.springframework.util.StringUtils;
  * @author Wei WANG
  *
  */
-public class Email {
+public class Email implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private static final String EMAIL_REGEX = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*"
 			+ "@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	private static final Pattern PATTERN = Pattern.compile(EMAIL_REGEX);
