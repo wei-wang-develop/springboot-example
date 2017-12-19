@@ -1,4 +1,4 @@
-package com.wei.springbootMongodbRedis;
+package com.wei.springbootUI_Thymeleaf;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

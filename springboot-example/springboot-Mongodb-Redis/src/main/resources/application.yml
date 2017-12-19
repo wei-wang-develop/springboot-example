@@ -1,0 +1,37 @@
+########## Redis cofig start ##########
+## Redis 配置
+spring:
+  redis:
+    database: 0 ## Redis数据库索引（默认为0）
+    host: 127.0.0.1 ## Redis服务器地址 localhost
+    port: 6379     ## Redis服务器连接端口
+    password:      ## Redis服务器连接密码（默认为空）
+    timeout: 0    ## 连接超时时间（毫秒）
+    pool:
+      max-active: 100  ## 连接池最大连接数（使用负值表示没有限制）
+      max-wait: 1000  ## 连接池最大阻塞等待时间（使用负值-1表示没有限制）
+      max-idle: 20   ## 连接池中的最大空闲连接
+      min-idle: 8   ## 连接池中的最小空闲连接
+########## Redis cofig end ##########
+
+########## db cofig start ##########
+# MONGODB (MongoProperties)
+#spring.data.mongodb.authentication-database= # Authentication database name.
+#spring.data.mongodb.database=test # Database name.
+#spring.data.mongodb.field-naming-strategy= # Fully qualified name of the FieldNamingStrategy to use.
+#spring.data.mongodb.grid-fs-database= # GridFS database name.
+#spring.data.mongodb.host=localhost # Mongo server host.
+#spring.data.mongodb.password= # Login password of the mongo server.
+#spring.data.mongodb.port=27017 # Mongo server port.
+#spring.data.mongodb.repositories.enabled=true # Enable Mongo repositories.
+#spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. When set, host and port are ignored.
+#spring.data.mongodb.username= # Login user of the mongo server. 
+  data:
+    mongodb:
+      database: test
+      host: localhost
+      port: 27017
+#      uri: mongodb://localhost:27017/test # Mongo database URI. When set, host and port are ignored.
+# MongoDB 3.x以上的版本:
+#spring.data.mongodb.uri=mongodb://user:pwd@ip1:port1,ip2:port2/database
+########## db cofig end ##########

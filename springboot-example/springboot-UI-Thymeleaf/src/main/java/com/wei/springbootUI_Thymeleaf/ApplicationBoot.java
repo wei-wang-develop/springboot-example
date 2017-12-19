@@ -1,4 +1,4 @@
-package com.wei.springbootMongodbRedis;
+package com.wei.springbootUI_Thymeleaf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

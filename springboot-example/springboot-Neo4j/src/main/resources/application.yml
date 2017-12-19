@@ -1,0 +1,11 @@
+# 连接Neo4j数据库
+# URL: https://qbgbook.gitbooks.io/spring-boot-reference-guide-zh/IV.%20Spring%20Boot%20features/30.3.1%20Connecting%20to%20a%20Neo4j%20database.html
+########## Neo4j cofig start ##########
+spring:
+  data:
+    neo4j:
+      uri: http://localhost:7474
+      username: neo4j
+      password: neo4j_new_password
+
+########## Neo4j cofig end  ###########

@@ -1,0 +1,17 @@
+########## thymeleaf cofig start ##########
+spring:
+  thymeleaf:
+    mode: HTML5  # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
+    encoding: UTF-8  # Template files encoding.
+    content-type: text/html; charset=utf-8
+    cache: false  # Enable template caching. when development, Turn off the cache , or can not see the real-time page.
+    prefix: classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
+    suffix: .html # Suffix that gets appended to view names when building a URL.
+    
+########## thymeleaf cofig end   ##########
+########## server cofig start ##########
+server:
+  port: 80
+  tomcat:
+    uri-encoding: UTF-8
+########## server cofig end   ##########

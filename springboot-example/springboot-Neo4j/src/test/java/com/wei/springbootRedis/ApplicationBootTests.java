@@ -1,4 +1,4 @@
-package com.wei.springbootMongodbRedis;
+package com.wei.springbootRedis;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
