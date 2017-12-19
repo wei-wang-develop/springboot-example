@@ -21,5 +21,8 @@
   <modules>
   	<module>../springBoot-example/springBootMongDB</module>
   	<module>../springBoot-example/springboot-Mongodb-Redis</module>
+  	<module>../springBoot-example/springboot-Redis</module>
+  	<module>../springBoot-example/springboot-Neo4j</module>
+  	<module>../springBoot-example/springboot-UI-Thymeleaf</module>
   </modules>
 </project>
