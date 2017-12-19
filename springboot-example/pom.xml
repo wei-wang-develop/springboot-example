@@ -19,7 +19,7 @@
 
 
   <modules>
-  	<module>../springBoot-example/springBootMongDB</module>
+  	<module>../springBoot-example/springboot-Mongdb</module>
   	<module>../springBoot-example/springboot-Mongodb-Redis</module>
   	<module>../springBoot-example/springboot-Redis</module>
   	<module>../springBoot-example/springboot-Neo4j</module>
